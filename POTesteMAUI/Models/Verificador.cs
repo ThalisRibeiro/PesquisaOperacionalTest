@@ -9,16 +9,17 @@ namespace POTesteMAUI.Models
 
     public class Verificador
     {
-        double ValorMaisAlto = 0;
+        public double ValorMaisAlto { get; private set; }
+        //double ValorMaisAlto = 0;
         int maiorI1;
         int maiorI2;
 
         public Verificador(Empresa empresa, ref Produto produto, ref Produto produto2)
         {
-
+            Comparador(empresa, ref produto, ref produto2);
         }
         //ele multiplica os valores, verifica se não ultrapassa as horas maximas e se foi o maior valor
-        void Comparador(Empresa empresa, ref Produto produto, ref Produto produto2)
+         void Comparador(Empresa empresa, ref Produto produto, ref Produto produto2)
         {
             int i1 = 0;
             int i2 = 0;
