@@ -10,5 +10,10 @@ namespace POTesteMAUI.Models
     {
         public int HHTotal { get; set; }
         public int HMTotal { get; set; }
+        public Empresa(int hHTotal, int hMTotal)
+        {
+            HHTotal = hHTotal;
+            HMTotal = hMTotal;
+        }
     }
 }
