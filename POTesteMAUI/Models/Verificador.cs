@@ -16,10 +16,26 @@ namespace POTesteMAUI.Models
 
         public Verificador(Empresa empresa, ref Produto produto, ref Produto produto2)
         {
+            TesteErro(empresa,produto,produto2);
             Comparador(empresa, ref produto, ref produto2);
         }
+
+        private void TesteErro(Empresa empresa,Produto produto, Produto produto1)
+        {
+            if (empresa.MateriaPrima1 <1||empresa.MateriaPrima2<1)
+            {
+                //erro: quantidade de materia prima disponivel nao elegivel
+            }
+            if (produto.Valor <1||produto1.Valor<1||produto.UsoMateriaPrima1<1||produto1.UsoMateriaPrima1<1
+                ||produto.UsoMateriaPrima2<1||produto1.UsoMateriaPrima2<1)
+            {
+                //erro: valores dos produtos nao aceitos, verifique se todos sao maiores de 0
+
+            }
+        }
+
         //ele multiplica os valores, verifica se não ultrapassa as horas maximas e se foi o maior valor
-         void Comparador(Empresa empresa, ref Produto produto, ref Produto produto2)
+        void Comparador(Empresa empresa, ref Produto produto, ref Produto produto2)
         {
             int i1 = 0;
             int i2 = 0;
