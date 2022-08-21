@@ -9,7 +9,7 @@ namespace POTesteMAUI.Services
     {
         public async Task MostraMensagemErro(string title ,string mensagem)
         {
-            await App.Current.MainPage.DisplayAlert("title", mensagem, "OK");
+            await App.Current.MainPage.DisplayAlert(title, mensagem, "OK");
         }
     }
 }
