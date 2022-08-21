@@ -47,6 +47,7 @@ namespace POTesteMAUI.ViewModels
         [ObservableProperty]
         int p2MP2;
 
+        // verificador da quantidade de produtos
         [RelayCommand]
         private void Possui3()
         {
@@ -57,5 +58,36 @@ namespace POTesteMAUI.ViewModels
         {
             Possui3Produtos = false;
         }
+
+        // comando que inicia o algoritimo
+        [RelayCommand]
+        private void RodaAlgoritimo()
+        {
+            try
+            {
+                if (possui3Produtos == false)
+                {
+                    Empresa empresa = new(qtdMP1, qtdMP2,nomeMP1,nomeMP2);
+                    Produto prod = new(nomeP1, valorP1, p1MP1,p1MP2);
+                    Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
+                    Verificador verificador = new(empresa, ref prod, ref prod2);
+
+                }
+            }
+            catch (Exception )
+            {
+
+                throw;
+            }
+        }
+
+        //private bool verificado2Prod()
+        //{
+        //    if(nomeMP1==string.Empty||nomeMP2== string.Empty||nomeP1== string.Empty||nomeP2== string.Empty
+        //        ||p1MP1<0||p1MP2<0||p2MP1<0||p2MP2<0)
+        //        return false;
+
+        //    return true;
+        //}
     }
 }
