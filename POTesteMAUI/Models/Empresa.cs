@@ -8,12 +8,14 @@ namespace POTesteMAUI.Models
 {
     public class Empresa
     {
-        public int HHTotal { get; set; }
-        public int HMTotal { get; set; }
-        public Empresa(int hHTotal, int hMTotal)
+        public int MateriaPrima1 { get; set; }
+        public int MateriaPrima2 { get; set; }
+        public string NomeMateriaPrima1 { get; set; }
+        public string NomeMateriaPrima2 { get; set; }
+        public Empresa(int mp1Disponivel, int mp2Disponivel)
         {
-            HHTotal = hHTotal;
-            HMTotal = hMTotal;
+            MateriaPrima1 = mp1Disponivel;
+            MateriaPrima2 = mp2Disponivel;
         }
     }
 }
