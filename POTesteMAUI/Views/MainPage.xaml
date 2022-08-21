@@ -2,13 +2,21 @@
 <ContentPage
     x:Class="POTesteMAUI.MainPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ViewModel="clr-namespace:POTesteMAUI.ViewModels"
+    x:Name="this">
+    <ContentPage.BindingContext>
+        <ViewModel:MainPageViewModel />
+    </ContentPage.BindingContext>
 
     <ContentPage.MenuBarItems>
-        <MenuBarItem Text="Quantidade de produtos">
-            <MenuFlyoutItem Text="2" />
-            <!--  Criar um binding para mudar a quantidade de produtos  -->
-            <MenuFlyoutItem Text="3" />
+        <MenuBarItem BindingContext="{Binding Path=BindingContext, Source={x:Reference this}}" Text="Opções">
+            <MenuFlyoutSubItem Text="Quantidade de produtos">
+
+                <MenuFlyoutItem Command="{Binding NaoPossui3Command}" Text="2" />
+                <MenuFlyoutItem Command="{Binding Possui3Command}" Text="3" />
+
+            </MenuFlyoutSubItem>
         </MenuBarItem>
     </ContentPage.MenuBarItems>
     <VerticalStackLayout>
@@ -37,12 +45,14 @@
                 x:Name="PrimeiraMateriaPrimaNome"
                 Grid.Row="1"
                 Grid.Column="1"
-                Placeholder="Digite o nome da Primeira materia prima" />
+                Placeholder="Digite o nome da Primeira materia prima"
+                Text="{Binding NomeMP1}" />
             <Entry
                 x:Name="SegundaMateriaPrimaNome"
                 Grid.Row="1"
                 Grid.Column="2"
-                Placeholder="Digite o nome da Segunda materia prima" />
+                Placeholder="Digite o nome da Segunda materia prima"
+                Text="{Binding NomeMP2}" />
             <Entry
                 x:Name="PrimeiraMateriaPrimaQtd"
                 Grid.Row="2"
@@ -111,7 +121,33 @@
                 Grid.Row="2"
                 Grid.Column="4"
                 Placeholder="Digite quanto o segundo produto gasta da Segunda materia prima" />
+            <Entry
+                x:Name="TerceiroProdutoNome"
+                Grid.Row="3"
+                Grid.Column="1"
+                IsVisible="{Binding Possui3Produtos}"
+                Placeholder="Digite o nome do terceiro produto" />
+
+            <Entry
+                x:Name="TerceiroProdutoValor"
+                Grid.Row="3"
+                Grid.Column="2"
+                IsVisible="{Binding Possui3Produtos}"
+                Placeholder="Digite o valor do terceiro produto" />
+            <Entry
+                x:Name="TerceiroProdutoMP1"
+                Grid.Row="3"
+                Grid.Column="3"
+                IsVisible="{Binding Possui3Produtos}"
+                Placeholder="Digite quanto o terceiro produto gasta da primeira materia prima" />
+            <Entry
+                x:Name="TerceiroProdutoMP2"
+                Grid.Row="3"
+                Grid.Column="4"
+                IsVisible="{Binding Possui3Produtos}"
+                Placeholder="Digite quanto o terceiro produto gasta da Segunda materia prima" />
         </Grid>
+        <Button Command="{Binding NaoPossui3Command}" Text="Click ME" />
 
     </VerticalStackLayout>
 
