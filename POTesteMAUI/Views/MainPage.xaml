@@ -57,12 +57,14 @@
                 x:Name="PrimeiraMateriaPrimaQtd"
                 Grid.Row="2"
                 Grid.Column="1"
-                Placeholder="Digite a quantidade da Primeira materia prima" />
+                Placeholder="Digite a quantidade da Primeira materia prima"
+                Text="{Binding QtdMP1}" />
             <Entry
                 x:Name="SegundaMateriaPrimaQtd"
                 Grid.Row="2"
                 Grid.Column="2"
-                Placeholder="Digite a quantidade da Segunda materia prima" />
+                Placeholder="Digite a quantidade da Segunda materia prima"
+                Text="{Binding QtdMP2}" />
         </Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -83,44 +85,58 @@
                 x:Name="PrimeiroProdutoNome"
                 Grid.Row="1"
                 Grid.Column="1"
-                Placeholder="Digite o nome do primeiro produto" />
+                Placeholder="Digite o nome do primeiro produto"
+                Text="{Binding NomeP1}" />
             <Entry
                 x:Name="PrimeiroProdutoValor"
                 Grid.Row="1"
                 Grid.Column="2"
-                Placeholder="Digite o valor do primeiro produto" />
+                Keyboard="Numeric"
+                Placeholder="Digite o valor do primeiro produto"
+                Text="{Binding ValorP1}" />
             <Entry
                 x:Name="PrimeiroProdutoMP1"
                 Grid.Row="1"
                 Grid.Column="3"
-                Placeholder="Digite quanto o primeiro produto gasta da primeira materia prima" />
+                Keyboard="Numeric"
+                Placeholder="Digite quanto o primeiro produto gasta da primeira materia prima"
+                Text="{Binding P1MP1}" />
             <Entry
                 x:Name="PrimeiroProdutoMP2"
                 Grid.Row="1"
                 Grid.Column="4"
-                Placeholder="Digite quanto o primeiro produto gasta da Segunda materia prima" />
+                Keyboard="Numeric"
+                Placeholder="Digite quanto o primeiro produto gasta da Segunda materia prima"
+                Text="{Binding P1MP2}" />
 
             <Entry
                 x:Name="SegundoProdutoNome"
                 Grid.Row="2"
                 Grid.Column="1"
-                Placeholder="Digite o nome do segundo produto" />
+                Placeholder="Digite o nome do segundo produto"
+                Text="{Binding NomeP2}" />
 
             <Entry
                 x:Name="SegundoProdutoValor"
                 Grid.Row="2"
                 Grid.Column="2"
-                Placeholder="Digite o valor do segundo produto" />
+                Keyboard="Numeric"
+                Placeholder="Digite o valor do segundo produto"
+                Text="{Binding ValorP2}" />
             <Entry
                 x:Name="SegundoProdutoMP1"
                 Grid.Row="2"
                 Grid.Column="3"
-                Placeholder="Digite quanto o segundo produto gasta da primeira materia prima" />
+                Keyboard="Numeric"
+                Placeholder="Digite quanto o segundo produto gasta da primeira materia prima"
+                Text="{Binding P2MP1}" />
             <Entry
                 x:Name="SegundoProdutoMP2"
                 Grid.Row="2"
                 Grid.Column="4"
-                Placeholder="Digite quanto o segundo produto gasta da Segunda materia prima" />
+                Keyboard="Numeric"
+                Placeholder="Digite quanto o segundo produto gasta da Segunda materia prima"
+                Text="{Binding P2MP2}" />
             <Entry
                 x:Name="TerceiroProdutoNome"
                 Grid.Row="3"
@@ -147,7 +163,7 @@
                 IsVisible="{Binding Possui3Produtos}"
                 Placeholder="Digite quanto o terceiro produto gasta da Segunda materia prima" />
         </Grid>
-        <Button Command="{Binding NaoPossui3Command}" Text="Click ME" />
+        <Button Command="{Binding RodaAlgoritimoCommand}" Text="Calcula o ponto perfeito" />
 
     </VerticalStackLayout>
 
