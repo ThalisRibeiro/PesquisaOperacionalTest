@@ -27,9 +27,9 @@ namespace POTesteMAUI.Models
             {
                 do
                 {
-                    var hhTotais= produto.UsoHH *i1 +produto2.UsoHH * i2;
-                    var hmTotais = produto.UsoHm *i1 +produto2.UsoHm *i2;
-                    if (hhTotais > empresa.HHTotal || hmTotais > empresa.HMTotal)
+                    var hhTotais= produto.UsoMateriaPrima1 *i1 +produto2.UsoMateriaPrima1 * i2;
+                    var hmTotais = produto.UsoMateriaPrima2 *i1 +produto2.UsoMateriaPrima2 *i2;
+                    if (hhTotais > empresa.MateriaPrima1 || hmTotais > empresa.MateriaPrima2)
                         break;
 
                     var valorTotal = produto.Valor * i1 + produto2.Valor *i2;

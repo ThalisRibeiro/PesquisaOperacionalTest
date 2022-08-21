@@ -11,16 +11,16 @@ namespace POTesteMAUI.Models
         public string Nome { get; set; }
         public double Valor { get; set; }
         public int Quantidade { get; set; }
-        public int UsoHH { get; set; }
-        public int UsoHm { get; set; }
+        public int UsoMateriaPrima1 { get; set; }
+        public int UsoMateriaPrima2 { get; set; }
 
-        public Produto(string nome, double valor, int quantidade, int usoHH, int usoHm)
+        public Produto(string nome, double valor, int quantidade, int usoMP1, int usoMP2)
         {
             Nome = nome;
             Valor = valor;
             Quantidade = quantidade;
-            UsoHH = usoHH;
-            UsoHm = usoHm;
+            UsoMateriaPrima1 = usoMP1;
+            UsoMateriaPrima2 = usoMP2;
         }
     }
 }
