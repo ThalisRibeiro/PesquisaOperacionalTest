@@ -1,4 +1,6 @@
-﻿namespace POTesteMAUI;
+﻿using POTesteMAUI.Services;
+
+namespace POTesteMAUI;
 
 public static class MauiProgram
 {
@@ -12,7 +14,8 @@ public static class MauiProgram
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
 			});
-
+		DependencyService.Register<IMessage, Message>();
+		//builder.Services.AddTransient<IMessage, Message>();
 		return builder.Build();
 	}
 }
