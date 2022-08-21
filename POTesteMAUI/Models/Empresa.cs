@@ -12,10 +12,12 @@ namespace POTesteMAUI.Models
         public int MateriaPrima2 { get; set; }
         public string NomeMateriaPrima1 { get; set; }
         public string NomeMateriaPrima2 { get; set; }
-        public Empresa(int mp1Disponivel, int mp2Disponivel)
+        public Empresa(int mp1Disponivel, int mp2Disponivel, string nMP1,string nMP2)
         {
             MateriaPrima1 = mp1Disponivel;
             MateriaPrima2 = mp2Disponivel;
+            NomeMateriaPrima1 = nMP1;
+            NomeMateriaPrima2 = nMP2;
         }
     }
 }
