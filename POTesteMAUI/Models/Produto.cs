@@ -13,6 +13,8 @@ namespace POTesteMAUI.Models
         public int Quantidade { get; set; }
         public int UsoMateriaPrima1 { get; set; }
         public int UsoMateriaPrima2 { get; set; }
+        public int MP1Total { get; set; }
+        public int MP2Total { get; set; }
         public double Lucro { get; set; }
 
         public Produto(string nome, double valor, int usoMP1, int usoMP2)
