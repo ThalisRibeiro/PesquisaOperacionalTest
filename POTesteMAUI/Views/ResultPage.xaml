@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="POTesteMAUI.Views.ResultPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:Model="clr-namespace:POTesteMAUI.Models"
+    xmlns:ViewModel="clr-namespace:POTesteMAUI.ViewModels"
+    Title="ResultPage">
+    <ContentPage.BindingContext>
+        <ViewModel:ResultPageViewModel />
+    </ContentPage.BindingContext>
+    <VerticalStackLayout>
+        <CollectionView ItemsSource="{Binding Produtos}">
+            <CollectionView.Header>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Nome" />
+                    <Label Grid.Column="1" Text="Valor" />
+                    <Label Grid.Column="2" Text="Quantidade" />
+                    <Label Grid.Column="3" Text="Lucro" />
+                    <Label Grid.Column="4" Text="{Binding Empresa.NomeMateriaPrima1}" />
+                    <Label Grid.Column="5" Text="{Binding Empresa.NomeMateriaPrima2}" />
+                </Grid>
+            </CollectionView.Header>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="Model:Produto">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Label Text="{Binding Nome}" />
+                        <Label Grid.Column="1" Text="{Binding Valor}" />
+                        <Label Grid.Column="2" Text="{Binding Quantidade}" />
+                        <Label Grid.Column="3" Text="{Binding Lucro}" />
+                        <Label Grid.Column="4" Text="{Binding MP1Total}" />
+                        <Label Grid.Column="5" Text="{Binding MP2Total}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label
+                Grid.Column="0"
+                Grid.ColumnSpan="6"
+                BackgroundColor="LightBlue"
+                HorizontalTextAlignment="Center"
+                Text="Valores Totais" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="3"
+                Text="{Binding Empresa.LucroToral}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="4"
+                Text="{Binding Empresa.MP1Usada}" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="5"
+                Text="{Binding Empresa.MP2Usada}" />
+        </Grid>
+
+    </VerticalStackLayout>
+</ContentPage>
