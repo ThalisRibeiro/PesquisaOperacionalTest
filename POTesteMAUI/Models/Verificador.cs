@@ -19,7 +19,7 @@ namespace POTesteMAUI.Models
         int maiorI3;
         bool deuerro;
 
-        public Verificador(Empresa empresa, ref Produto produto, ref Produto produto2)
+        public Verificador(ref Empresa empresa, ref Produto produto, ref Produto produto2)
         {
             //_message = DependencyService.Get<Services.IMessage>();
             _message = DependencyService.Get<IMessage>();
