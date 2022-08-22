@@ -142,26 +142,30 @@
                 Grid.Row="3"
                 Grid.Column="1"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite o nome do terceiro produto" />
+                Placeholder="Digite o nome do terceiro produto"
+                Text="{Binding NomeP3}" />
 
             <Entry
                 x:Name="TerceiroProdutoValor"
                 Grid.Row="3"
                 Grid.Column="2"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite o valor do terceiro produto" />
+                Placeholder="Digite o valor do terceiro produto"
+                Text="{Binding ValorP3}" />
             <Entry
                 x:Name="TerceiroProdutoMP1"
                 Grid.Row="3"
                 Grid.Column="3"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite quanto o terceiro produto gasta da primeira materia prima" />
+                Placeholder="Digite quanto o terceiro produto gasta da primeira materia prima"
+                Text="{Binding P3MP1}" />
             <Entry
                 x:Name="TerceiroProdutoMP2"
                 Grid.Row="3"
                 Grid.Column="4"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite quanto o terceiro produto gasta da Segunda materia prima" />
+                Placeholder="Digite quanto o terceiro produto gasta da Segunda materia prima"
+                Text="{Binding P3MP2}" />
         </Grid>
         <Button Command="{Binding RodaAlgoritimoCommand}" Text="Calcula o ponto perfeito" />
 
