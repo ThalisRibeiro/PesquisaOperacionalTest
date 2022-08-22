@@ -13,6 +13,7 @@ namespace POTesteMAUI.Models
         public int Quantidade { get; set; }
         public int UsoMateriaPrima1 { get; set; }
         public int UsoMateriaPrima2 { get; set; }
+        public double Lucro { get; set; }
 
         public Produto(string nome, double valor, int usoMP1, int usoMP2)
         {
@@ -20,6 +21,10 @@ namespace POTesteMAUI.Models
             Valor = valor;
             UsoMateriaPrima1 = usoMP1;
             UsoMateriaPrima2 = usoMP2;
+        }
+        public void AddLucro()
+        {
+            Lucro = this.Valor * this.Quantidade;
         }
     }
 }
