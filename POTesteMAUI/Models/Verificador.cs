@@ -112,7 +112,7 @@ namespace POTesteMAUI.Models
             produto.Quantidade = maiorI1;
             produto2.Quantidade = maiorI2;
         }
-        public Verificador(Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
+        public Verificador(ref Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
         {
             //_message = DependencyService.Get<Services.IMessage>();
             _message = DependencyService.Get<IMessage>();
