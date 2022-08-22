@@ -27,6 +27,9 @@ namespace POTesteMAUI.Models
             if (deuerro)
                 return;
             Comparador(empresa, ref produto, ref produto2);
+            produto.AddLucro();
+            produto2.AddLucro();
+            empresa.LucroToral = ValorMaisAlto;
         }
 
         private void TesteErro(Empresa empresa,Produto produto, Produto produto1, Produto produto2 = null)
@@ -93,6 +96,8 @@ namespace POTesteMAUI.Models
                         ValorMaisAlto = valorTotal;
                         maiorI1 = i1;
                         maiorI2 = i2;
+                        empresa.MP1Usada = hhTotais;
+                        empresa.MP2Usada = hmTotais;
                     }
                     i2 += 1;
                 } while (true);
@@ -115,6 +120,9 @@ namespace POTesteMAUI.Models
             if (deuerro)
                 return;
             Comparador2(empresa, ref produto, ref produto2, ref produto3);
+            produto.AddLucro();
+            produto2.AddLucro();
+            produto3.AddLucro();
         }
         void Comparador2(Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
         {
@@ -140,6 +148,9 @@ namespace POTesteMAUI.Models
                             maiorI1 = i1;
                             maiorI2 = i2;
                             maiorI3 = i3;
+
+                            empresa.MP1Usada = hhTotais;
+                            empresa.MP2Usada = hmTotais;
                         }
                         i3 += 1;
                     } while (true);
@@ -160,6 +171,7 @@ namespace POTesteMAUI.Models
             produto.Quantidade = maiorI1;
             produto2.Quantidade = maiorI2;
             produto3.Quantidade = maiorI3;
+            empresa.LucroToral = ValorMaisAlto;
         }
     }
 }
