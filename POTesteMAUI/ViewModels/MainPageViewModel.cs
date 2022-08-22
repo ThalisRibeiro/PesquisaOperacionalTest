@@ -14,7 +14,7 @@ namespace POTesteMAUI.ViewModels
     {
         public MainPageViewModel()
         {
-            Possui3Produtos = true;
+            Possui3Produtos = false;
         }
         //parte da empresa
         [ObservableProperty]
@@ -47,6 +47,15 @@ namespace POTesteMAUI.ViewModels
         [ObservableProperty]
         int p2MP2;
 
+        [ObservableProperty]
+        string nomeP3;
+        [ObservableProperty]
+        double valorP3;
+        [ObservableProperty]
+        int p3MP1;
+        [ObservableProperty]
+        int p3MP2;
+
         // verificador da quantidade de produtos
         [RelayCommand]
         private void Possui3()
@@ -71,6 +80,15 @@ namespace POTesteMAUI.ViewModels
                     Produto prod = new(nomeP1, valorP1, p1MP1,p1MP2);
                     Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
                     Verificador verificador = new(empresa, ref prod, ref prod2);
+                    
+                }
+                else if(possui3Produtos == true)
+                {
+                    Empresa empresa = new(qtdMP1, qtdMP2, nomeMP1, nomeMP2);
+                    Produto prod = new(nomeP1, valorP1, p1MP1, p1MP2);
+                    Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
+                    Produto prod3 = new(nomeP3, valorP3, p3MP1, p3MP2);
+                    Verificador verificador = new(empresa, ref prod, ref prod2, ref prod3);
 
                 }
             }
