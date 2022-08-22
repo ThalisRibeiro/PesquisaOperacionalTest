@@ -107,6 +107,59 @@ namespace POTesteMAUI.Models
             produto.Quantidade = maiorI1;
             produto2.Quantidade = maiorI2;
         }
-       
+        public Verificador(Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
+        {
+            //_message = DependencyService.Get<Services.IMessage>();
+            _message = DependencyService.Get<IMessage>();
+            TesteErro(empresa, produto, produto2,produto3);
+            if (deuerro)
+                return;
+            Comparador2(empresa, ref produto, ref produto2, ref produto3);
+        }
+        void Comparador2(Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
+        {
+            int i1 = 0;
+            int i2 = 0;
+            int i3 = 0;
+            do
+            {
+
+                do
+                {
+                    do
+                    {
+                        var hhTotais = produto.UsoMateriaPrima1 * i1 + produto2.UsoMateriaPrima1 * i2 + produto3.UsoMateriaPrima1 *i3;
+                        var hmTotais = produto.UsoMateriaPrima2 * i1 + produto2.UsoMateriaPrima2 * i2 + produto3.UsoMateriaPrima2 * i3;
+                        if (hhTotais > empresa.MateriaPrima1 || hmTotais > empresa.MateriaPrima2)
+                            break;
+
+                        var valorTotal = produto.Valor * i1 + produto2.Valor * i2;
+                        if (valorTotal > ValorMaisAlto)
+                        {
+                            ValorMaisAlto = valorTotal;
+                            maiorI1 = i1;
+                            maiorI2 = i2;
+                            maiorI3 = i3;
+                        }
+                        i3 += 1;
+                    } while (true);
+
+                    if (i3 == 0)
+                        break;
+
+                    i2++;
+                    i3 = 0;
+
+                } while (true);
+                if (i2 == 0 && i3 == 0)
+                    break;
+                i1++;
+                i2 = 0;
+                i3 = 0;
+            } while (true);
+            produto.Quantidade = maiorI1;
+            produto2.Quantidade = maiorI2;
+            produto3.Quantidade = maiorI3;
+        }
     }
 }
