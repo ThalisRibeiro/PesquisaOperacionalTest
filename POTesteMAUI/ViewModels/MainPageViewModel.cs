@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 using POTesteMAUI.Models;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using System.Reflection;
+using POTesteMAUI.Views;
+using System.Collections.ObjectModel;
 
 namespace POTesteMAUI.ViewModels
 {
@@ -70,7 +73,7 @@ namespace POTesteMAUI.ViewModels
 
         // comando que inicia o algoritimo
         [RelayCommand]
-        private void RodaAlgoritimo()
+        private async Task RodaAlgoritimo()
         {
             try
             {
@@ -79,8 +82,14 @@ namespace POTesteMAUI.ViewModels
                     Empresa empresa = new(qtdMP1, qtdMP2,nomeMP1,nomeMP2);
                     Produto prod = new(nomeP1, valorP1, p1MP1,p1MP2);
                     Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
-                    Verificador verificador = new(empresa, ref prod, ref prod2);
-                    
+                    ObservableCollection<Produto> produtos = new();
+                    produtos.Add(prod);
+                    produtos.Add(prod2);
+                    Verificador verificador = new(ref empresa, ref prod, ref prod2);
+                   await Shell.Current.GoToAsync($"{nameof(ResultPage)}", new Dictionary<string, object>
+                    {
+                        ["Empresa"] = empresa, ["Produtos"] = produtos,
+                    }) ;
                 }
                 else if(possui3Produtos == true)
                 {
@@ -88,8 +97,16 @@ namespace POTesteMAUI.ViewModels
                     Produto prod = new(nomeP1, valorP1, p1MP1, p1MP2);
                     Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
                     Produto prod3 = new(nomeP3, valorP3, p3MP1, p3MP2);
-                    Verificador verificador = new(empresa, ref prod, ref prod2, ref prod3);
-
+                    Verificador verificador = new(ref empresa, ref prod, ref prod2, ref prod3);
+                    ObservableCollection<Produto> produtos = new();
+                    produtos.Add(prod);
+                    produtos.Add(prod2);
+                    produtos.Add(prod3);
+                    await Shell.Current.GoToAsync($"{nameof(ResultPage)}", new Dictionary<string, object>
+                    {
+                        ["Empresa"] = empresa,
+                        ["Produtos"] = produtos,
+                    });
                 }
             }
             catch (Exception )
