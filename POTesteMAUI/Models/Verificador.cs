@@ -96,6 +96,10 @@ namespace POTesteMAUI.Models
                         ValorMaisAlto = valorTotal;
                         maiorI1 = i1;
                         maiorI2 = i2;
+                        produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
+                        produto2.MP2Total = produto2.UsoMateriaPrima2 * i2;
+                        produto.MP1Total = produto.UsoMateriaPrima1 * i1;
+                        produto.MP2Total = produto.UsoMateriaPrima2 * i1;
                         empresa.MP1Usada = hhTotais;
                         empresa.MP2Usada = hmTotais;
                     }
@@ -148,7 +152,12 @@ namespace POTesteMAUI.Models
                             maiorI1 = i1;
                             maiorI2 = i2;
                             maiorI3 = i3;
-
+                            produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
+                            produto2.MP2Total = produto2.UsoMateriaPrima2 * i2;
+                            produto.MP1Total = produto.UsoMateriaPrima1 * i1;
+                            produto.MP2Total = produto.UsoMateriaPrima2 * i1;
+                            produto3.MP1Total = produto3.UsoMateriaPrima1 * i3;
+                            produto3.MP2Total = produto3.UsoMateriaPrima2 * i3;
                             empresa.MP1Usada = hhTotais;
                             empresa.MP2Usada = hmTotais;
                         }
