@@ -88,7 +88,8 @@ namespace POTesteMAUI.ViewModels
                     Verificador verificador = new(ref empresa, ref prod, ref prod2);
                    await Shell.Current.GoToAsync($"{nameof(ResultPage)}", new Dictionary<string, object>
                     {
-                        ["Empresa"] = empresa, ["Produtos"] = produtos,
+                       //dentro do [] fica o nome da propriedade dentro da result model, depois do igual a variavel local
+                       ["Empresa"] = empresa, ["Produtos"] = produtos,
                     }) ;
                 }
                 else if(possui3Produtos == true)
