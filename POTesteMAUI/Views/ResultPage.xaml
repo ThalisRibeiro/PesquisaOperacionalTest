@@ -34,55 +34,85 @@
                     <Grid>
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="auto" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
                         <Label Text="{Binding Nome}" />
-                        <Label Grid.Column="1" Text="{Binding Valor}" />
-                        <Label Grid.Column="2" Text="{Binding Quantidade}" />
-                        <Label Grid.Column="3" Text="{Binding Lucro}" />
-                        <Label Grid.Column="4" Text="{Binding MP1Total}" />
-                        <Label Grid.Column="5" Text="{Binding MP2Total}" />
+                        <Label Grid.Column="2" Text="{Binding Valor}" />
+                        <Label Grid.Column="4" Text="{Binding Quantidade}" />
+                        <Label Grid.Column="6" Text="{Binding Lucro}" />
+                        <Label Grid.Column="8" Text="{Binding MP1Total}" />
+                        <Label Grid.Column="10" Text="{Binding MP2Total}" />
+                        <!--  separadores  -->
+                        <Label Grid.Column="3" Text="|" />
+                        <Label Grid.Column="1" Text="|" />
+                        <Label Grid.Column="9" Text="|" />
+                        <Label Grid.Column="5" Text="|" />
+                        <Label Grid.Column="7" Text="|" />
+                        <Label Grid.Column="9" Text="|" />
                     </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
 
 
-        <Grid>
+        <Grid RowDefinitions="*,*">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="auto" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
+            <!--<Grid.RowDefinitions>
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
+            </Grid.RowDefinitions>-->
             <Label
                 Grid.Column="0"
-                Grid.ColumnSpan="6"
+                Grid.ColumnSpan="11"
                 BackgroundColor="LightBlue"
                 HorizontalTextAlignment="Center"
                 Text="Valores Totais" />
             <Label
                 Grid.Row="1"
-                Grid.Column="3"
+                Grid.Column="6"
                 Text="{Binding Empresa.LucroToral}" />
             <Label
                 Grid.Row="1"
-                Grid.Column="4"
+                Grid.Column="8"
                 Text="{Binding Empresa.MP1Usada}" />
             <Label
                 Grid.Row="1"
-                Grid.Column="5"
+                Grid.Column="10"
                 Text="{Binding Empresa.MP2Usada}" />
+            <!--  separadores  -->
+            <Label
+                Grid.Row="1"
+                Grid.Column="5"
+                Text="|" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="7"
+                Text="|" />
+            <Label
+                Grid.Row="1"
+                Grid.Column="9"
+                Text="|" />
         </Grid>
 
     </VerticalStackLayout>
