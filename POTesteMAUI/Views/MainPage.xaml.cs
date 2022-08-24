@@ -15,6 +15,10 @@ public partial class MainPage : ContentPage
 		this.SegundoProdutoMP1.Text = "";
 		this.PrimeiroProdutoMP2.Text = "";
 		this.SegundoProdutoMP2.Text = "";
+		this.TerceiroProdutoNome.Text = "";
+		this.TerceiroProdutoValor.Text = "";
+		this.TerceiroProdutoMP1.Text = "";
+		this.TerceiroProdutoMP2.Text = "";
     }
 
 
