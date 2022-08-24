@@ -4,7 +4,9 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:ViewModel="clr-namespace:POTesteMAUI.ViewModels"
-    x:Name="this">
+    xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
+    x:Name="this"
+    android:Application.WindowSoftInputModeAdjust="Resize">
     <ContentPage.BindingContext>
         <ViewModel:MainPageViewModel />
     </ContentPage.BindingContext>
@@ -21,48 +23,83 @@
     </ContentPage.MenuBarItems>
     <VerticalStackLayout>
 
+
+        <Grid ColumnSpacing="5" IsVisible="{OnIdiom Default=false, Phone=true}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="15" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="15" />
+            </Grid.ColumnDefinitions>
+
+            <Button
+                Grid.Column="1"
+                Grid.ColumnSpan="1"
+                Command="{Binding NaoPossui3Command}"
+                IsVisible="{OnIdiom Default=false,
+                                    Phone=true}"
+                Text="Usar 2 produtos" />
+            <Button
+                Grid.Column="2"
+                Command="{Binding Possui3Command}"
+                IsVisible="{OnIdiom Default=false,
+                                    Phone=true}"
+                Text="Usar 3 Produtos" />
+        </Grid>
+
+
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100" />
+                <RowDefinition Height="{OnIdiom Default=100, Phone=20}" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="100" />
+                <RowDefinition Height="{OnIdiom Default=100, Phone=20}" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="{OnIdiom Default=100, Phone=25}" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
-                <ColumnDefinition Width="50" />
+                <ColumnDefinition Width="{OnIdiom Default=100, Phone=25}" />
             </Grid.ColumnDefinitions>
             <Entry
                 x:Name="PrimeiraMateriaPrimaNome"
                 Grid.Row="1"
                 Grid.Column="1"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Placeholder="Digite o nome da Primeira materia prima"
                 Text="{Binding NomeMP1}" />
             <Entry
                 x:Name="SegundaMateriaPrimaNome"
-                Grid.Row="1"
-                Grid.Column="2"
+                Grid.Row="{OnIdiom Default=1,
+                                   Phone=3}"
+                Grid.Column="{OnIdiom Default=2,
+                                      Phone=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Placeholder="Digite o nome da Segunda materia prima"
                 Text="{Binding NomeMP2}" />
             <Entry
                 x:Name="PrimeiraMateriaPrimaQtd"
-                Grid.Row="2"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=2}"
                 Grid.Column="1"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Placeholder="Digite a quantidade da Primeira materia prima"
                 Text="{Binding QtdMP1}" />
             <Entry
                 x:Name="SegundaMateriaPrimaQtd"
-                Grid.Row="2"
-                Grid.Column="2"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=4}"
+                Grid.Column="{OnIdiom Default=2,
+                                      Phone=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Placeholder="Digite a quantidade da Segunda materia prima"
                 Text="{Binding QtdMP2}" />
         </Grid>
@@ -72,6 +109,10 @@
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="10" />
@@ -81,90 +122,149 @@
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="10" />
             </Grid.ColumnDefinitions>
+            <!--  Produto 1  -->
             <Entry
                 x:Name="PrimeiroProdutoNome"
-                Grid.Row="1"
-                Grid.Column="1"
-                Placeholder="Digite o nome do primeiro produto"
+                Grid.Row="{OnIdiom Default=1}"
+                Grid.Column="{OnIdiom Default=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
+                Placeholder="{OnIdiom Default=Digite o nome do primeiro produto,
+                                      Phone=Nome Produto 1}"
                 Text="{Binding NomeP1}" />
             <Entry
                 x:Name="PrimeiroProdutoValor"
                 Grid.Row="1"
-                Grid.Column="2"
+                Grid.Column="{OnIdiom Default=2,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite o valor do primeiro produto"
+                Placeholder="{OnIdiom Default=Digite o valor do primeiro produto,
+                                      Phone=Valor primeiro produto}"
                 Text="{Binding ValorP1}" />
             <Entry
                 x:Name="PrimeiroProdutoMP1"
-                Grid.Row="1"
-                Grid.Column="3"
+                Grid.Row="{OnIdiom Default=1,
+                                   Phone=2}"
+                Grid.Column="{OnIdiom Default=3,
+                                      Phone=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite quanto o primeiro produto gasta da primeira materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o primeiro produto gasta da primeira materia prima,
+                                      Phone=Materia Prima produto 1}"
                 Text="{Binding P1MP1}" />
             <Entry
                 x:Name="PrimeiroProdutoMP2"
-                Grid.Row="1"
-                Grid.Column="4"
+                Grid.Row="{OnIdiom Default=1,
+                                   Phone=2}"
+                Grid.Column="{OnIdiom Default=4,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite quanto o primeiro produto gasta da Segunda materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o primeiro produto gasta da segunda materia prima,
+                                      Phone=Materia Prima 2 produto 1}"
                 Text="{Binding P1MP2}" />
 
+            <!--  segundo produto  -->
             <Entry
                 x:Name="SegundoProdutoNome"
-                Grid.Row="2"
-                Grid.Column="1"
-                Placeholder="Digite o nome do segundo produto"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=4}"
+                Grid.Column="{OnIdiom Default=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
+                Placeholder="{OnIdiom Default=Digite o nome do segundo produto,
+                                      Phone=Nome produto 2}"
                 Text="{Binding NomeP2}" />
 
             <Entry
                 x:Name="SegundoProdutoValor"
-                Grid.Row="2"
-                Grid.Column="2"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=4}"
+                Grid.Column="{OnIdiom Default=2,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite o valor do segundo produto"
+                Placeholder="{OnIdiom Default=Digite o valor do segundo produto,
+                                      Phone=Valor segundo produto}"
                 Text="{Binding ValorP2}" />
             <Entry
                 x:Name="SegundoProdutoMP1"
-                Grid.Row="2"
-                Grid.Column="3"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=5}"
+                Grid.Column="{OnIdiom Default=3,
+                                      Phone=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite quanto o segundo produto gasta da primeira materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o segundo produto gasta da primeira materia prima,
+                                      Phone=Materia prima 1 prod 2}"
                 Text="{Binding P2MP1}" />
             <Entry
                 x:Name="SegundoProdutoMP2"
-                Grid.Row="2"
-                Grid.Column="4"
+                Grid.Row="{OnIdiom Default=2,
+                                   Phone=5}"
+                Grid.Column="{OnIdiom Default=4,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 Keyboard="Numeric"
-                Placeholder="Digite quanto o segundo produto gasta da Segunda materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o segundo produto gasta da Segunda materia prima,
+                                      Phone=Materia prima 2 prod 2}"
                 Text="{Binding P2MP2}" />
+
+            <!--  Terceiro produto  -->
             <Entry
                 x:Name="TerceiroProdutoNome"
-                Grid.Row="3"
+                Grid.Row="{OnIdiom Default=3,
+                                   Phone=6}"
                 Grid.Column="1"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite o nome do terceiro produto"
+                Placeholder="{OnIdiom Default=Digite o nome do terceiro produto,
+                                      Phone=Nome terceiro produto}"
                 Text="{Binding NomeP3}" />
 
             <Entry
                 x:Name="TerceiroProdutoValor"
-                Grid.Row="3"
-                Grid.Column="2"
+                Grid.Row="{OnIdiom Default=3,
+                                   Phone=6}"
+                Grid.Column="{OnIdiom Default=2,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite o valor do terceiro produto"
+                Placeholder="{OnIdiom Default=Digite o valor do terceiro produto,
+                                      Phone=valor produto 3}"
                 Text="{Binding ValorP3}" />
             <Entry
                 x:Name="TerceiroProdutoMP1"
-                Grid.Row="3"
-                Grid.Column="3"
+                Grid.Row="{OnIdiom Default=3,
+                                   Phone=7}"
+                Grid.Column="{OnIdiom Default=3,
+                                      Phone=1}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite quanto o terceiro produto gasta da primeira materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o terceiro produto gasta da primeira materia prima,
+                                      Phone=Materia Prima 1 prod 3}"
                 Text="{Binding P3MP1}" />
             <Entry
                 x:Name="TerceiroProdutoMP2"
-                Grid.Row="3"
-                Grid.Column="4"
+                Grid.Row="{OnIdiom Default=3,
+                                   Phone=7}"
+                Grid.Column="{OnIdiom Default=4,
+                                      Phone=3}"
+                Grid.ColumnSpan="{OnIdiom Default=1,
+                                          Phone=2}"
                 IsVisible="{Binding Possui3Produtos}"
-                Placeholder="Digite quanto o terceiro produto gasta da Segunda materia prima"
+                Placeholder="{OnIdiom Default=Digite quanto o terceiro produto gasta da Segunda materia prima,
+                                      Phone=Materia Prima 2 prod 3}"
                 Text="{Binding P3MP2}" />
         </Grid>
         <Button Command="{Binding RodaAlgoritimoCommand}" Text="Calcula o ponto perfeito" />
