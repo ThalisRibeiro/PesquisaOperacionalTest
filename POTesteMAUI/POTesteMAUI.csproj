@@ -15,11 +15,11 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>POTesteMAUI</ApplicationTitle>
+		<ApplicationTitle>TCCSimplex</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.potestemaui</ApplicationId>
-		<ApplicationIdGuid>90030A40-3A87-4407-B4BD-6D5A017FBD71</ApplicationIdGuid>
+		<ApplicationId>com.2018101271.tccsimplex</ApplicationId>
+		<ApplicationIdGuid>90030A40-3A87-4407-B4BD-6D5A017FBD73</ApplicationIdGuid>
 
 		<!-- Versions -->
 		<ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
@@ -53,6 +53,12 @@
 
 	<ItemGroup>
 	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\ResultPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>
