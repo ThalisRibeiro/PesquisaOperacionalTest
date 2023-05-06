@@ -10,6 +10,16 @@ namespace POTesteMAUI.Models
     {
         public int MateriaPrima1 { get; set; }
         public int MateriaPrima2 { get; set; }
+        public List<double> RestricoesList
+        {
+            get
+            {
+                var list = new List<double>();
+                list.Add(MateriaPrima1);
+                list.Add(MateriaPrima2);
+                return list;
+            }
+        }
         public string NomeMateriaPrima1 { get; set; }
         public string NomeMateriaPrima2 { get; set; }
         public int MP1Usada { get; set; }
