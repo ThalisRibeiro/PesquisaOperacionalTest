@@ -27,8 +27,8 @@ namespace POTesteMAUI.Models
             if (deuerro)
                 return;
             Comparador(empresa, ref produto, ref produto2);
-            produto.AddLucro();
-            produto2.AddLucro();
+            //produto.AddLucro();
+            //produto2.AddLucro();
             empresa.LucroToral = ValorMaisAlto;
         }
 
@@ -61,6 +61,7 @@ namespace POTesteMAUI.Models
                 {
                     deuerro = true;
                     _message.MostraMensagemErro("ERRO", "quantidade de materia prima disponivel nao elegivel");
+                    throw new Exception();
                     return;
                     //erro: quantidade de materia prima disponivel nao elegivel
                 }
@@ -69,6 +70,7 @@ namespace POTesteMAUI.Models
                 {
                     deuerro = true;
                     _message.MostraMensagemErro("ERRO", "valores dos produtos nao aceitos, verifique se todos sao maiores de 0");
+                    throw new Exception();
                     return;
                     //erro: valores dos produtos nao aceitos, verifique se todos sao maiores de 0
 
@@ -96,10 +98,10 @@ namespace POTesteMAUI.Models
                         ValorMaisAlto = valorTotal;
                         maiorI1 = i1;
                         maiorI2 = i2;
-                        produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
+                        /*produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
                         produto2.MP2Total = produto2.UsoMateriaPrima2 * i2;
                         produto.MP1Total = produto.UsoMateriaPrima1 * i1;
-                        produto.MP2Total = produto.UsoMateriaPrima2 * i1;
+                        produto.MP2Total = produto.UsoMateriaPrima2 * i1;*/
                         empresa.MP1Usada = hhTotais;
                         empresa.MP2Usada = hmTotais;
                     }
@@ -124,9 +126,9 @@ namespace POTesteMAUI.Models
             if (deuerro)
                 return;
             Comparador2(empresa, ref produto, ref produto2, ref produto3);
-            produto.AddLucro();
-            produto2.AddLucro();
-            produto3.AddLucro();
+            //produto.AddLucro();
+            //produto2.AddLucro();
+            //produto3.AddLucro();
         }
         void Comparador2(Empresa empresa, ref Produto produto, ref Produto produto2, ref Produto produto3)
         {
@@ -152,12 +154,12 @@ namespace POTesteMAUI.Models
                             maiorI1 = i1;
                             maiorI2 = i2;
                             maiorI3 = i3;
-                            produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
+                            /*produto2.MP1Total = produto2.UsoMateriaPrima1 * i2;
                             produto2.MP2Total = produto2.UsoMateriaPrima2 * i2;
                             produto.MP1Total = produto.UsoMateriaPrima1 * i1;
                             produto.MP2Total = produto.UsoMateriaPrima2 * i1;
                             produto3.MP1Total = produto3.UsoMateriaPrima1 * i3;
-                            produto3.MP2Total = produto3.UsoMateriaPrima2 * i3;
+                            produto3.MP2Total = produto3.UsoMateriaPrima2 * i3;*/
                             empresa.MP1Usada = hhTotais;
                             empresa.MP2Usada = hmTotais;
                         }
