@@ -147,7 +147,7 @@ namespace POTesteMAUI.Models
                         if (hhTotais > empresa.MateriaPrima1 || hmTotais > empresa.MateriaPrima2)
                             break;
 
-                        var valorTotal = produto.Valor * i1 + produto2.Valor * i2;
+                        var valorTotal = produto.Valor * i1 + produto2.Valor * i2 + produto3.Valor * i3;
                         if (valorTotal > ValorMaisAlto)
                         {
                             ValorMaisAlto = valorTotal;
