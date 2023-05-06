@@ -9,6 +9,7 @@ using CommunityToolkit.Mvvm.Input;
 using System.Reflection;
 using POTesteMAUI.Views;
 using System.Collections.ObjectModel;
+using POTesteMAUI.Services;
 
 namespace POTesteMAUI.ViewModels
 {
@@ -82,10 +83,16 @@ namespace POTesteMAUI.ViewModels
                     Empresa empresa = new(qtdMP1, qtdMP2,nomeMP1,nomeMP2);
                     Produto prod = new(nomeP1, valorP1, p1MP1,p1MP2);
                     Produto prod2 = new(nomeP2, valorP2, p2MP1, p2MP2);
+                    Gerenciador gerenciador = new Gerenciador(empresa,new List<Produto>(){ prod,prod2});
+                    Simplex simplex = new Simplex(gerenciador);
+                    gerenciador = simplex.RodaSimplex();
+                    empresa = gerenciador.empresa;
+                    prod = gerenciador.produtos[0];
+                    prod2 = gerenciador.produtos[1];
                     ObservableCollection<Produto> produtos = new();
                     produtos.Add(prod);
                     produtos.Add(prod2);
-                    Verificador verificador = new(ref empresa, ref prod, ref prod2);
+                    //Verificador verificador = new(ref empresa, ref prod, ref prod2);
                    await Shell.Current.GoToAsync($"{nameof(ResultPage)}", new Dictionary<string, object>
                     {
                        //dentro do [] fica o nome da propriedade dentro da result model, depois do igual a variavel local
