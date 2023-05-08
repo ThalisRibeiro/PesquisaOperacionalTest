@@ -17,6 +17,7 @@ namespace POTesteMAUI.Services
         public Simplex(Gerenciador gerenciadorRecebido)
         {
             this.gerenciador = gerenciadorRecebido;
+            verificaValores();
             this.tabela = criaTabela();
         }
         public double[,] criaTabela()
@@ -31,7 +32,28 @@ namespace POTesteMAUI.Services
             return alimentaTabela(linhas, colunas, tabela);
         }
 
-
+        void verificaValores()
+        {
+            bool possuiDiferenteDeZero = false;
+            for (int i = 0; i < gerenciador.empresa.RestricoesList.Count; i++)
+            {
+                if (gerenciador.empresa.RestricoesList[i]==0)
+                {
+                    throw new Exception("Nao foi inserido as devidas restrições");
+                }
+            }
+            foreach (var produto in gerenciador.produtos)
+            {
+                foreach (var gasto in produto.GastoDasMP)
+                {
+                    if (gasto != 0) possuiDiferenteDeZero = true;                  
+                }
+                if (possuiDiferenteDeZero == false)
+                {
+                    throw new Exception("Possui produto sem gastos");
+                }
+            }
+        }
         //Metodo que leva em conta como se a quantidade de produtos e restrições fossem aleatórias por lista
         public double[,] alimentaTabela(int linhas, int colunas, double[,] tabela)
         {

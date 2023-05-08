@@ -117,10 +117,11 @@ namespace POTesteMAUI.ViewModels
                     });
                 }
             }
-            catch (Exception )
+            catch (Exception e)
             {
-
-                throw;
+                var _message = DependencyService.Get<IMessage>();
+                await _message.MostraMensagemErro("Erro",e.Message);
+                //throw;
             }
         }
 
