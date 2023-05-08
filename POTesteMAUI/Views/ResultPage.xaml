@@ -5,7 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:Model="clr-namespace:POTesteMAUI.Models"
     xmlns:ViewModel="clr-namespace:POTesteMAUI.ViewModels"
-    Title="ResultPage">
+    Title="LUCRO MAXIMO">
     <ContentPage.BindingContext>
         <ViewModel:ResultPageViewModel />
     </ContentPage.BindingContext>

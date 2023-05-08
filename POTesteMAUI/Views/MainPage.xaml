@@ -6,6 +6,7 @@
     xmlns:ViewModel="clr-namespace:POTesteMAUI.ViewModels"
     xmlns:android="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.AndroidSpecific;assembly=Microsoft.Maui.Controls"
     x:Name="this"
+    Title="SIMPLEX"
     android:Application.WindowSoftInputModeAdjust="Resize">
     <ContentPage.BindingContext>
         <ViewModel:MainPageViewModel />
