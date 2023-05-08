@@ -130,7 +130,19 @@ namespace POTesteMAUI.Services
                 }
             }
             gerenciador.empresa.LucroToral = this.tabela[linhas - 1, colunas - 1];
+            AdicionaValoresEmpresa();
             return gerenciador;
+        }
+        void AdicionaValoresEmpresa()
+        {
+            gerenciador.empresa.MP1Usada = 0;
+            gerenciador.empresa.MP2Usada = 0;
+            foreach (var produto in gerenciador.produtos)
+            {
+                gerenciador.empresa.MP1Usada += produto.MP1Total;
+                gerenciador.empresa.MP2Usada += produto.MP2Total;
+            }
+            
         }
 
         private bool PossuiNegativoEmZ(double[,] tabela)
